@@ -5,7 +5,6 @@ import * as yup from "yup"
 
 import "@primer/css/base/index.scss"
 import "@primer/css/index.scss"
-import "@primer/css/Utilities/index.scss"
 
 const schema = yup.object().shape({
   size: yup.number().required().moreThan(9).lessThan(121),
@@ -122,6 +121,7 @@ export default function Home() {
             return (
               <div
                 className="worm__block"
+                key={i}
                 style={{
                   animationDelay: `${index * 200}ms`,
                   width: `${wormShit.size}px`,
