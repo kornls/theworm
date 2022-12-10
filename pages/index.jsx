@@ -8,7 +8,7 @@ import "@primer/css/index.scss"
 
 const schema = yup.object().shape({
   size: yup.number().required().moreThan(9).lessThan(121),
-  length: yup.number().required().moreThan(4).lessThan(14),
+  length: yup.number().required().moreThan(4).lessThan(16),
   color: yup.number().required().moreThan(-1).lessThan(361),
 })
 
@@ -38,8 +38,8 @@ export default function Home() {
           <p style={{ maxWidth: "25rem" }}>
             This <strong>thing </strong>
             is basically the second version of a stupid project I made like a
-            year ago for fun. Yes, this is literally it. Uhh... Have fun, I
-            guess?
+            year ago for fun. Yes, this is literally it. Btw, this thing has
+            like 10 bugs lol sorry. Uhh... Have fun, I guess?
           </p>
         </div>
         <div>
@@ -79,7 +79,7 @@ export default function Home() {
                 <label htmlFor="length">
                   Worm Length{" "}
                   <span className="color-fg-danger small text-normal">
-                    min: 6 max: 20
+                    min: 5 max: 15
                   </span>
                 </label>
                 <Field
@@ -118,21 +118,59 @@ export default function Home() {
       >
         <div className="worm">
           {[...Array(wormShit.length)].map((i, index) => {
-            return (
-              <div
-                className="worm__block"
-                key={i}
-                style={{
-                  animationDelay: `${index * 200}ms`,
-                  width: `${wormShit.size}px`,
-                  height: `${wormShit.size}px`,
-                  backgroundColor: `hsl(${wormShit.color}, 60%, ${
-                    index * 5 + 40
-                  }%)`,
-                  borderRadius: "10px",
-                }}
-              ></div>
-            )
+            if (index != 0) {
+              return (
+                <div
+                  className="worm__block"
+                  key={i}
+                  style={{
+                    animationDelay: `${index * 200}ms, ${index * 100}ms`,
+                    width: `${wormShit.size}px`,
+                    height: `${wormShit.size}px`,
+                    backgroundColor: `hsl(${wormShit.color}, 50%, ${
+                      index * 3 + 40
+                    }%)`,
+                    borderRadius: `${wormShit.size / 7}px`,
+                  }}
+                ></div>
+              )
+            } else {
+              return (
+                <div
+                  className="worm__block"
+                  key={i}
+                  style={{
+                    animationDelay: `${index * 200}ms, ${index * 100}ms`,
+                    width: `${wormShit.size}px`,
+                    height: `${wormShit.size}px`,
+                    backgroundColor: `hsl(${wormShit.color}, 50%, ${
+                      index * 3 + 40
+                    }%)`,
+                    borderRadius: `${wormShit.size / 7}px`,
+                    padding: `${wormShit.size / 10}px`,
+                  }}
+                >
+                  <div
+                    className="eyes"
+                    style={{
+                      height: `${wormShit.size / 2.5}px`,
+                      width: `${wormShit.size / 7}px`,
+                      borderRadius: "inherit",
+                    }}
+                  ></div>
+                  <div
+                    className="mouth"
+                    style={{
+                      height: `${wormShit.size / 20}px`,
+                      width: `${wormShit.size / 2}px`,
+                      borderRadius: "inherit",
+                      marginTop: `${wormShit.size / 5}px`,
+                      marginLeft: `${(wormShit.size / 10) * -1}px`,
+                    }}
+                  ></div>
+                </div>
+              )
+            }
           })}
         </div>
       </main>

@@ -16,20 +16,30 @@ body {
     flex-grow: 10000;
     display: grid;
     place-items: center;
+    padding: 3rem;
+    overflow: hidden;
 
     .worm {
       filter: drop-shadow(0 0 20px hsla(0, 100%, 0%, 0.3));
-      margin-left: 2%;
+      margin-left: 1.5%;
+      white-space: nowrap;
+      width: fit-content;
 
       .worm__block {
-        animation: worm 500ms linear alternate infinite, fade 500ms linear;
+        animation: worm 400ms linear alternate infinite, fade 500ms linear;
         background-color: red;
         width: 100px;
         height: 100px;
-        margin-left: -2%;
+        margin-left: -1.5%;
         display: inline-block;
         opacity: 0;
         animation-fill-mode: forwards;
+
+        .eyes,
+        .mouth {
+          background-color: black;
+          opacity: 0.6;
+        }
       }
     }
   }
