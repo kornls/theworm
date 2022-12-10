@@ -1,0 +1,65 @@
+body {
+  overflow-y: hidden;
+}
+
+.app {
+  display: flex;
+
+  .wrapper {
+    padding: 1rem 2rem;
+    width: fit-content;
+    height: 100vh;
+    min-width: 28rem;
+  }
+
+  .board {
+    flex-grow: 10000;
+    display: grid;
+    place-items: center;
+
+    .worm {
+      filter: drop-shadow(0 0 20px hsla(0, 100%, 0%, 0.3));
+      margin-left: 2%;
+
+      .worm__block {
+        animation: worm 500ms linear alternate infinite, fade 500ms linear;
+        background-color: red;
+        width: 100px;
+        height: 100px;
+        margin-left: -2%;
+        display: inline-block;
+        opacity: 0;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
+
+input {
+  display: block;
+  min-width: 16rem;
+  width: 100%;
+}
+
+svg {
+  transform: scale(0.8) translateY(5px);
+  margin-left: 5px;
+}
+
+@keyframes worm {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(20%);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
