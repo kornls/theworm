@@ -1,5 +1,5 @@
 body {
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .app {
@@ -9,7 +9,7 @@ body {
     padding: 1rem 2rem;
     width: fit-content;
     height: 100vh;
-    min-width: 28rem;
+    flex-shrink: 0;
   }
 
   .board {
@@ -17,23 +17,20 @@ body {
     display: grid;
     place-items: center;
     padding: 3rem;
-    overflow: hidden;
+    overflow: auto;
 
     .worm {
-      filter: drop-shadow(0 0 20px hsla(0, 100%, 0%, 0.3));
-      margin-left: 1.5%;
+      filter: drop-shadow(0 0 30px hsla(0, 100%, 0%, 0.33));
       white-space: nowrap;
       width: fit-content;
+      display: flex;
 
       .worm__block {
         animation: worm 400ms linear alternate infinite, fade 500ms linear;
-        background-color: red;
-        width: 100px;
-        height: 100px;
-        margin-left: -1.5%;
-        display: inline-block;
         opacity: 0;
         animation-fill-mode: forwards;
+        flex-shrink: 0;
+        position: relative;
 
         .eyes,
         .mouth {

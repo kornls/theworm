@@ -1,3 +1,8 @@
-# THE WORM
+# **THE WORM**
 
-Based on the my first version.
+## Updates
+
+- Redesigned UI
+- Responsive (?)
+- Now with "Worm Length"
+- Coming **very** soon...
