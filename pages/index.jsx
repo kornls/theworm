@@ -29,7 +29,7 @@ export default function Home() {
 
       <section className="wrapper border">
         <h1 className="text-bold">
-          Wiggly Worm<sup>v2 - Beta</sup>
+          Wiggly Worm<sup>v2</sup>
         </h1>
         <div>
           <h2 className="text-underline text-normal">
